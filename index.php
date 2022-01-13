@@ -76,13 +76,13 @@
     </navbar>
     <div class="main-section">
         <div class="col-left">
-            <div class="row-title">
+            <div class="row-title row-head">
                 <p>Dashboard</p>
             </div>
             <div class="row-top row-index">
                 <div class="card">
                     <p>Pemasukan</p>
-                    <p><?= $keuntungan[0]["SUM(total)"] ?></p>
+                    <p><span id="rp">Rp.</span> <?= $keuntungan[0]["SUM(total)"] ?></p>
                 </div>
                 <div class="card">
                     <p>Jumlah transaksi</p>
@@ -95,7 +95,7 @@
             </div>
             <div class="row-table">
                 <div class="row-title">
-                    <p>Data transaksi</p>
+                    <p>Laporan Penjualan</p>
                 </div>
                 <table class="table table-data">
                     <tr>
@@ -104,7 +104,7 @@
                         <th>nama</th>
                         <th>Tanggal</th>
                         <th>total</th>
-                        <th>action</th>
+                        <th></th>
                     </tr>
                     <?php foreach($transaksi as $row) : ?>
                         <tr>
@@ -114,7 +114,7 @@
                             <td><?= $row["tggl"] ?></td>
                             <td><?= $row["total"] ?></td>
                             <td>
-                                <a href="page/transaksi.php?id=<?= $row["id_transaksi"] ?>">Detail</a>
+                                <a href="page/transaksi.php?id=<?= $row["id_transaksi"] ?>" class="detail-links">Detail</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -122,33 +122,26 @@
             </div>
         </div>
         <div class="col-right">
-            <div class="row-profile">
-                <div>
-                    <div class="profile-icon">
-                        <img src="assets/img/notif.svg" alt="">
-                    </div>
-                </div>
-                <div>
-                    <div class="profile-img">
-                        <img src="assets/img/profile.png" alt="">
-                    </div>
+            <div class="row-profile row-head">
+                <p>Mulyana</p>
+                <div class="profile-img">
+                    <img src="assets/img/profile.png" alt="">
                 </div>
             </div>
             <div class="row-input">
-                <div class="row-title">
+                <div class="row-title-2">
                     <p>Transaksi baru</p>
                 </div>
                 <form action="" method="POST" class="form-index">
                     <div>
-                        <label for="id_customer">Pilih customer</label>
                         <select name="id_customer" id="id_customer">
-                            <option value="">--pilih customer--</option>
+                            <option value="">Pilih customer</option>
                             <?php foreach($customer as $i) :?>
                                 <option value="<?= $i["id_customer"] ?>"><?= $i["nama"] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <button class="btn btn-primary pt-4" name="tambah">Buat</button>
+                    <button class="btn btn-primary mt-4" name="tambah">Buat</button>
                 </form>
             </div>
         </div>
