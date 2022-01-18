@@ -58,9 +58,16 @@ body {
 .nav-menus ul li.active p {
     color: #fff;
 }
+
+.nav-menus ul li a svg {
+    width: 16px;
+    height: 16px;
+}
+
 .nav-menus ul li.active a svg {
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(100%) contrast(200%);
 }
+
 .nav-menus ul li a svg {
     filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(155deg) brightness(100%) contrast(100%);
 }
@@ -86,17 +93,29 @@ body {
 .col-produk {
     position: absolute;
     top: 2rem;
-    left: 45%;
+    left: 46.5%;
     transform: translateX(-50%);
+    width: 800px;
+    padding: 0 1rem;
 }
 
-.col-right-fixed {
+.col-right-produk {
     position: fixed;
     right: 0;
     top: 0;
+    padding-top: 2rem;
     height: 100%;
-    background: #fff;
+    background: #E8E8E8;
+    width: 300px;
+    padding: 2rem 1.2rem 2.4rem 1.2rem;
+    overflow-y: auto;
+    box-sizing: content-box1;
 }
+
+.col-right-produk::-webkit-scrollbar {
+    display: none;
+}
+  
 
 .row-top {
     display: flex;
@@ -128,10 +147,25 @@ body {
 .row-title {
     height: 40px;
     font-size: 19px;
+    color: #272341;
+}
+
+.row-title-2 {
+    height: 40px;
+    font-size: 17px;
+}
+
+.row-title-list {
+    height: 40px;
+    font-weight: 600;
+
 }
 
 .row-input {
-    margin-top: 4rem;
+}
+
+.row-head {
+    margin-bottom: 1rem;
 }
 
 .row-profile {
@@ -152,6 +186,12 @@ body {
     width: 100%;
 }
 
+.row-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
 /* -------------------------------------------------------------- table */
 table {
@@ -165,8 +205,21 @@ table tr {
 }
 table tr th {
     height: 40px;
-    font-size: 16px;
+    color: #878787;
+    font-size: 14px;
     font-weight: 400;
+}
+
+table tr td {
+    height: 40px;
+}
+
+table tr td:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+table tr td:last-child {
+    border-radius: 0 4px 4px 0;
 }
 
 table tr:nth-child(even) {
@@ -177,24 +230,118 @@ table tr td:last-child a{
     text-decoration: none;
 }
 
+table tr td:last-child a img{
+    width: 12px;
+}
+
 /* -------------------------------------------------------------- transaksi */
 .produk-wrapper {
     display: flex;
-    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: space-between;    
 }
 
 .produk-card {
-    width: 200px;
-    height: 240px;
+    width: 180px;
+    height: 220px;
     background: #fff;
     border-radius: 6px;
+    margin-bottom: 28px;
+    position: relative;
+    cursor: pointer;
 }
 
 .produk-img {
     width: 100%;
-    height: 140px;
-    background: rgba(0, 0, 0, 0.2);
+    height: 120px;
+    overflow: hidden;
 }
+
+
+.produk-img img {
+    max-width: 100%;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+}
+
+.produk-copy {
+    padding: 12px;
+    margin-bottom: 1.2rem;
+    color: #202020;
+}
+
+.produk-title {
+    text-transform: capitalize;
+}
+
+.produk-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.produk-stock {
+    font-size: 14px;
+}
+
+.produk-bottom {
+    position: absolute;
+    bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.produk-stock {
+    color: #AFAFAF;
+}
+
+.produk-harga {
+    font-weight: 600;
+}
+
+.list-wrapper,
+.list-produk {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-wrapper {
+    margin-bottom: 8px;
+}
+
+.list-wrapper div:first-child {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+}
+
+.list-img {
+    width: 36px;
+    height: 36px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.list-img img {
+    max-width: 100%;
+}
+
+.list-produk {
+    font-size: 15px;
+}
+
+.list-produk p {
+    margin-right: 4px;
+}
+
+.list-qty {
+    padding: 2px;
+    font-weight: 600;
+    color: #202020;
+}
+
 
 /* -------------------------------------------------------- FORM */
 form {
@@ -204,15 +351,87 @@ form {
 form div {
     display: flex;
     flex-direction: column;
+    margin-bottom: 8px;
 }
 
 form div label {
     font-size: 14px;
     margin-bottom: 6px;
+    color: #888888;
 }
 
 form div input,
-form div select {
-    height: 32px;
+form div select,
+.form-transaksi input {
+    height: 36px;
     padding: 0 8px;
+    border-radius: 4px;
+    border: 1.3px solid #BCBCBC;
+    outline: none;
+}
+
+.form-transaksi {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+}
+
+.form-transaksi div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#id_input {
+    width: 36px;
+    text-align: center;
+    color: #2C4174;
+    background: #D4D6DD;
+    border: none;
+}
+
+#qty {
+    width: 72px;
+}
+
+/* ------------------------------------------------------- Button */
+.btn {
+    height: 40px;
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.mt-4 {
+    margin-top: 14px;
+}
+.mt-6 {
+    margin-top: 24px;
+}
+
+.hidden {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.detail-links {
+    color: black;
+    border-bottom: 1px dashed var(--primary-color);
+}
+
+#rp {
+    font-size: 18px;
+    color: #888888;
 }
